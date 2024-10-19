@@ -1,0 +1,26 @@
+[
+    {
+        "id":0,
+        "name":"test",
+        "biome":0,
+        "upgrade":[{"id":2, "mat":[[], []]}, {"id":3, "mat":[[], []]}]
+    },
+    {
+        "id":1,
+        "name":"test",
+        "biome":1,
+        "upgrade":[{"id":2, "mat":[[], []]}, {"id":3, "mat":[[], []]}]
+    },
+    {
+        "id":2,
+        "name":"test",
+        "biome":1,
+        "upgrade":[{"id":2, "mat":[[], []]}, {"id":3, "mat":[[], []]}]
+    },
+    {
+        "id":3,
+        "name":"test",
+        "biome":1,
+        "upgrade":[{"id":2, "mat":[[], []]}, {"id":3, "mat":[[], []]}]
+    }
+]

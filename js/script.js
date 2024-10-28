@@ -2,11 +2,16 @@
 mapboxgl.accessToken = "pk.eyJ1IjoibXlpcWlzOSIsImEiOiJjbTJubjZlZTEwODBwMmxwdW1uMXIwMDM3In0.HmJ3h34x-lCS-zrinDHgRg";
 
 //declare variables
-const map = new mapboxgl.Map({
+var map = new mapboxgl.Map({
+    // id of div that will hold map
     container: 'map',
-    style: 'mapbox://styles/mapbox/standard',
-    zoom: 3,
-    center: [30, 15]
+    // one of the existing mapbox map styles
+    style: 'mapbox://styles/myiqis9/cm2tkmlz300ad01ntc5cxcprj',
+    // style:'mapbox://styles/mapbox/standard',
+    // zoom in (greater = smaller area displayed)
+    zoom: 15,
+    // longitude, latitude of the map center
+    center: [-73, 45]
 });
 
 //get player location
@@ -20,8 +25,17 @@ function getLocation() {
   }
   
   function usePosition(position) {
-    console.log("Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude);
-    findPlayerBiome(position.coords.latitude, position.coords.longitude);
+    //jump map to user coordinates
+    map.jumpTo({center: [position.coords.longitude, position.coords.latitude]});
+    //using settimeout because map.on('moveend') was WAY too inconsistent and unreliable
+    setTimeout(() => {
+        const playerPos = map.queryRenderedFeatures();
+        findPlayerBiome(playerPos[0].properties);
+    }, 300);
+  }
+
+  function findPlayerBiome(pos) {
+    console.log(pos);
   }
   
   function showError(error) {
@@ -41,12 +55,12 @@ function getLocation() {
     }
   }
 
-  function findPlayerBiome(lat, long) {
-    const bbox = [
-        [lat - 5, long - 5],
-        [lat + 5, long + 5]
-    ]; //area around player location
-
-    const playerPos = map.queryRenderedFeatures(bbox);
-    console.log(playerPos[0].properties);
-  }
+//   function findPlayerBiome(long, lat) {
+//     console.log(map);
+//     map.center = [long, lat];//area around player location
+//     console.log("Map center: " + map.center);
+//     map.panTo(map.center, {duration: 200}).on('moveend', () => {
+//         const playerPos = map.queryRenderedFeatures();
+//         console.log(playerPos[0].properties);
+//     });
+//   }

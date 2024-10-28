@@ -1,5 +1,5 @@
 //mapbox access token
-mapboxgl.accessToken = pk.eyJ1IjoibXlpcWlzOSIsImEiOiJjbTJubjZlZTEwODBwMmxwdW1uMXIwMDM3In0.HmJ3h34x-lCS-zrinDHgRg;
+mapboxgl.accessToken = "pk.eyJ1IjoibXlpcWlzOSIsImEiOiJjbTJubjZlZTEwODBwMmxwdW1uMXIwMDM3In0.HmJ3h34x-lCS-zrinDHgRg";
 
 //declare variables
 const map = new mapboxgl.Map({

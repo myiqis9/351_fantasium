@@ -47,10 +47,6 @@ function getLocation() {
         [lat + 5, long + 5]
     ]; //area around player location
 
-    const selectedFeatures = map.queryRenderedFeatures(bbox, {
-        layers: ['terrain-data']
-    });
-
-    console.log(selectedFeatures[0].layer);
-    console.log(selectedFeatures[0].properties);
+    const playerPos = map.queryRenderedFeatures(bbox);
+    console.log(playerPos[0].properties);
   }

@@ -37,3 +37,5 @@ upgrade notation:
 
 "upgrades":[{"id":item id (dict key), "mat":[[material, amount], [material, amount]]}, 
             {"id":item id (dict key), "mat":[[material, amount], [material, amount]]}]
+
+player.json is a placeholder of save file that will save all player data in server

@@ -11,6 +11,10 @@ body {
   align-items: center;
 }
 
+h2 {
+  text-decoration: underline;
+}
+
 #menu {
   width: 250px;
   padding: 10px;
@@ -33,6 +37,26 @@ body {
   background-color: #ECF39E;
   box-shadow: 0 0 10px rgb(180, 255, 173);
   border: 10px solid #30542F;
+}
+
+#main button {
+  width: 250px;
+  padding: 15px;
+  background-color: #729C5D;
+  border-radius: 15px;
+  border-color:#0D5D56;
+  border-width: 2px;
+  color: #FDFFE4;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 15px;
+
+}
+
+#main button:hover {
+  background-color: #30542F;
+  color:#729C5D;
 }
 
 #menu button {
@@ -58,4 +82,13 @@ body {
   position: relative;
   margin-left: auto;
   margin-right: auto;
+}
+
+#terrarium {
+  width: 90%;
+  height: 500px;
+  margin: 0 auto;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #FDFFE4;
 }

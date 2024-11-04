@@ -37,8 +37,10 @@ h2 {
 }
 
 #main button {
-  width: 250px;
+  width: auto;
   padding: 15px;
+  padding-left: 25px;
+  padding-right: 25px;
   background-color: #729C5D;
   border-radius: 15px;
   border-color:#0D5D56;
@@ -55,6 +57,7 @@ h2 {
   color:#729C5D;
 }
 
+/* container for item upgrade + material needed sections */
 #item-container {
   display: flex;
   justify-content: center;
@@ -65,15 +68,14 @@ h2 {
 #item-upgrade {
   width:50%;
   height:200px;
-  background-color: #30542F;
+  background-color: #FDFFE4;
   padding: 10px;
-  
 }
 
 #mats-needed {
   width:50%;
   height: 200px;
-  background-color: #30542F;
+  background-color: #FDFFE4;
   padding: 10px;
 }
 
@@ -116,6 +118,20 @@ h2 {
   background-color:#E1F4CB;
 }
 
+#exploration {
+  width: 90%;
+  height: 500px;
+  margin: 0 auto;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #FDFFE4;
+}
+
+/* remove this once it is possible to select items in exploration */
+#exploration:hover {
+  background-color:#E1F4CB;
+}
+
 #terra_name_input {
   width: 40%;
   height: 50px;
@@ -134,4 +150,85 @@ h2 {
 #terra_name_input:hover {
   background-color: #30542F;
   color:#729C5D;
+}
+
+/* contains chat+player search */
+#chat-container {
+  display: flex;
+  justify-content: center;
+  margin: 35px;
+  margin-bottom: 0px;
+}
+
+.search-player {
+  width:30%;
+  justify-content: center;
+  background-color: #E1F4CB;
+  border-radius: 8px;
+  border: 3px solid #729C5D;
+}
+
+.search-input {
+  height: 40px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  border-radius: 7px;
+}
+
+.chatbox {
+  width: 70%;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+}
+
+.chatbox-messages {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  background-color: #FDFFE4;
+  border-radius: 20px 20px 0 0;
+  border: 3px solid #729C5D;
+}
+
+/* individual message styling */
+.message {
+  padding: 8px;
+  margin: 5px 0;
+  border-radius: 10px;
+  max-width: 80%;
+}
+
+.message.sent {
+  background-color: #9CCBC2;
+  align-self: flex-end;
+  width: fit-content;
+  text-align: left;
+}
+
+.message.received {
+  background-color: #E1F4CB;
+  align-self: flex-start;
+  width: fit-content;
+  text-align: left;
+}
+
+/* input area styling */
+.chatbox-input {
+  display: flex;
+  padding: 10px;
+  background-color: #FDFFE4;
+  border-radius: 0 0 20px 20px;
+  border: 3px solid #729C5D;
+}
+
+/* input field styling */
+.chatbox-input input {
+  flex: 1;
+  padding: 8px;
+  border: 2px solid #729C5D;
+  border-radius: 10px;
+  margin-right: 10px;
 }

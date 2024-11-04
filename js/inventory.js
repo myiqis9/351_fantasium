@@ -55,8 +55,3 @@ function loadInventory() {
         });
     });
 }
-
-/* <div class="item-box">
-                    <img src="../image_assets/placeholder.png" class="item-image">
-                    <p class="item-name">Item 1</p>
-                </div> */

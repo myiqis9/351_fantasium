@@ -1,14 +1,11 @@
 body {
   display: flex;
   justify-content: center;
-  /* align-items: center; */
   margin: 100px;
 }
 
 #container {
   display: flex;
-  align-items: flex-start;
-  align-items: center;
 }
 
 h2 {
@@ -18,7 +15,7 @@ h2 {
 #menu {
   width: 250px;
   padding: 10px;
-  margin: 50px 100px 50px 50px;
+  margin: 200px 100px 50px 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,7 +27,7 @@ h2 {
   height: 100%;
   margin-top: 2%;
   text-align: center;
-  font-family: calibri;
+  /* font-family: calibri; */
   font-size: 14pt;
   border-radius: 20px;
   padding: 5px;
@@ -51,12 +48,33 @@ h2 {
   font-weight: bold;
   cursor: pointer;
   margin-left: 15px;
-
 }
 
 #main button:hover {
   background-color: #30542F;
   color:#729C5D;
+}
+
+#item-container {
+  display: flex;
+  justify-content: center;
+  margin: 35px;
+  margin-bottom: 0px;
+}
+
+#item-upgrade {
+  width:50%;
+  height:200px;
+  background-color: #30542F;
+  padding: 10px;
+  
+}
+
+#mats-needed {
+  width:50%;
+  height: 200px;
+  background-color: #30542F;
+  padding: 10px;
 }
 
 #menu button {
@@ -91,4 +109,29 @@ h2 {
   text-align: center;
   border-radius: 10px;
   background-color: #FDFFE4;
+}
+
+/* remove this once it is possible to select items in terrarium */
+#terrarium:hover {
+  background-color:#E1F4CB;
+}
+
+#terra_name_input {
+  width: 40%;
+  height: 50px;
+  text-align: center;
+  font-size: 20px;
+  border-radius: 15px;
+  margin : 10px;
+  background-color: #729C5D;
+  border-color:#0D5D56;
+  border-width: 2px;
+  color: #FDFFE4;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#terra_name_input:hover {
+  background-color: #30542F;
+  color:#729C5D;
 }

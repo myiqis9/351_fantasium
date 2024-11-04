@@ -14,6 +14,8 @@ var map = new mapboxgl.Map({
     center: [-73, 45]
 });
 
+var player = null;
+
 //get player location
 function getLocation() {
     if (navigator.geolocation) {
@@ -35,7 +37,45 @@ function getLocation() {
   }
 
   function findPlayerBiome(pos) {
-    console.log(pos);
+    console.log(pos.BIOME_NAME);
+    player = new Player("test", null, null, [], [], []);
+
+    switch(pos.BIOME_NAME) {
+      case "Tropical & Subtropical Moist Broadleaf Forests":
+      case "Tropical & Subtropical Dry Broadleaf Forests":
+        player.biome = "tropical";
+        break;
+
+      case "Tundra":
+      case "Boreal Forests/Taiga":
+      case "Rock and Ice":
+      case "Temperate Conifer Forests":
+        player.biome = "taiga"
+        break;
+      
+      case "Mediterranean Forests, Woodlands & Scrub":
+      case "Flooded Grasslands & Savannas":
+      case "Mangroves":
+        player.biome = "waterside";
+        break;
+
+      case "Temperate Broadleaf & Mixed Forests":
+      case "Tropical & Subtropical Coniferous Forests":
+        player.biome = "forest";
+        break;
+
+      case "Montane Grasslands & Shrublands":
+      case "Temperate Grasslands, Savannas & Shrublands":
+        player.biome = "grassland";
+        break;
+
+      case "Tropical & Subtropical Grasslands, Savannas & Shrublands":
+      case "Deserts & Xeric Shrublands":
+        player.biome = "desert";
+        break;
+    }
+
+    console.log(player);
   }
   
   function showError(error) {
@@ -55,12 +95,12 @@ function getLocation() {
     }
   }
 
-//   function findPlayerBiome(long, lat) {
-//     console.log(map);
-//     map.center = [long, lat];//area around player location
-//     console.log("Map center: " + map.center);
-//     map.panTo(map.center, {duration: 200}).on('moveend', () => {
-//         const playerPos = map.queryRenderedFeatures();
-//         console.log(playerPos[0].properties);
-//     });
-//   }
+  // function findPlayerBiome(long, lat) {
+  //   console.log(map);
+  //   map.center = [long, lat];//area around player location
+  //   console.log("Map center: " + map.center);
+  //   map.panTo(map.center, {duration: 200}).on('moveend', () => {
+  //       const playerPos = map.queryRenderedFeatures();
+  //       console.log(playerPos[0].properties);
+  //   });
+  // }

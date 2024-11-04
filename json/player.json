@@ -1,8 +1,8 @@
 {
-    "username":"",
+    "username":"test",
     "biome":"",
+    "inventory":[{"item":0, "amount":4}, {"item":1, "amount":5}, {"item":2, "amount":4}, {"item":3, "amount":1}],
     "terrarium":[],
-    "inventory":[],
     "trades":[],
     "friendlist":[]
 }

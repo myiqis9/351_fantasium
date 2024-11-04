@@ -1,10 +1,18 @@
 class Player {
-    constructor(username, biome, terrarium, inventory, trades, friendlist) {
-        this.username = username;
-        this.biome = biome;
-        this.terrarium = terrarium;
-        this.inventory = inventory;
-        this.trades = trades;
-        this.friendlist = friendlist;
+    constructor(json) {
+        this.username = json.username;
+        this.biome = json.biome;
+        this.terrarium = json.terrarium;
+        this.inventory = json.inventory;
+        this.trades = json.trades;
+        this.friendlist = json.friendlist;
+    }
+
+    addToInventory(item, amount) {
+        
+        for(let i of this.inventory) {
+            if(i.item.id = item.id) i.amount++;
+            else this.inventory.add({item: item, amount: amount});
+        }
     }
 }

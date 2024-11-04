@@ -135,3 +135,7 @@ h2 {
   background-color: #30542F;
   color:#729C5D;
 }
+
+#map {
+  visibility: hidden;
+}

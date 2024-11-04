@@ -224,11 +224,51 @@ h2 {
   border: 3px solid #729C5D;
 }
 
-/* input field styling */
 .chatbox-input input {
   flex: 1;
   padding: 8px;
   border: 2px solid #729C5D;
   border-radius: 10px;
   margin-right: 10px;
+}
+
+/*inventory grid container */
+.inventory {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 10px;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+/* individual item boxes */
+.item-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  padding-bottom: 0px;
+  border: 2px solid #30542F;
+  border-radius: 6px;
+  background-color: #ECF39E;
+  box-shadow: 0 0 10px rgba(180, 255, 173, 0.4);
+  text-align: center;
+}
+
+.item-box:hover {
+  background-color: #729C5D;
+}
+
+/*item images */
+.item-image {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 8px;
+}
+
+/*item name styling */
+.item-name {
+  font-size: 16px;
+  color: #30542F;
+  margin-top: 5px;
 }

@@ -1,10 +1,10 @@
-biome types by id:
-1. 
-2. 
-3. 
-4. 
-5. 
-
+biome types:
+1. forest
+2. desert
+3. tropical
+4. taiga
+5. waterside
+6. grassland
 
 item list:
 1. 
@@ -33,7 +33,9 @@ item list:
 24. 
 25. 
 
-upgrade notation:
+player.json is a placeholder of save file that will save all player data in server
 
-"upgrades":[{"id":item id (dict key), "mat":[[material, amount], [material, amount]]}, 
-            {"id":item id (dict key), "mat":[[material, amount], [material, amount]]}]
+Friends:
+Total materials:
+Trades completed:
+Items sold:

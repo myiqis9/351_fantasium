@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Fantasium - Community</title>
+    <meta charset="utf-8" />
+
+    <!-- style & class scripts -->
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+
+    <!-- mapbox GL -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css" rel="stylesheet" />
+</head>
+
+<body style = "background: #3A2618">
+    <div id="container">
+        <!-- game title and main menu buttons -->
+        <div id="menu">
+            <!-- title will later be replaced by an img -->
+            <h1>Fantasium</h1>
+            <button id="p_profile" onclick="location.href='profile.html'">My profile</button>
+            <button id="p_terrarium" onclick="location.href='terrarium.html'">Terrarium</button>
+            <button id="explore_page" onclick="location.href='exploration.html'">Explore</button>
+            <button id="trading_page" onclick="location.href='trading.html'">Trading</button>
+            <button id="p_inventory" onclick="location.href='inventory.html'">Inventory</button>
+            <button id="community_page" onclick="location.href='community.html'">Community</button>
+        </div>
+        <div id="main">
+            <br></br>
+            <h2>Player chat</h2>
+            <div id="chat-container">
+                <div class="search-player">
+                    <input type="text" placeholder="Search for players..." class="search-input">
+                    <br></br>
+                    List of players shows up here once user presses enter (or maybe add a button?)
+                </div>
+                <div class="chatbox">
+                    <div class="chatbox-messages">
+                        <!--simulated messages -->
+                        <div class="message received">yapmaster9000 : Chat is this real</div>
+                        <div class="message sent">pookiedookie : you're literally being simulated rn</div>
+                    </div>
+                    <div class="chatbox-input">
+                        <input type="text" placeholder="Send a message..." id="chatInput" />
+                        <button id="sendButton">Send</button>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <!-- main script.js call -->
+    <script src="../js/community.js"> </script>
+</body>
+</html>

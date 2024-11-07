@@ -1,26 +1,51 @@
 [
     {
         "id":0,
-        "name":"test",
-        "biome":0,
-        "upgrade":[{"id":2, "mat":[[], []]}, {"id":3, "mat":[[], []]}]
+        "name":"root",
+        "biome":"forest",
+        "requirements":[],
+        "upgrades_to":[2, 3]
     },
     {
         "id":1,
-        "name":"test",
-        "biome":1,
-        "upgrade":[{"id":2, "mat":[[], []]}, {"id":3, "mat":[[], []]}]
+        "name":"tree",
+        "biome":"forest",
+        "requirements":[],
+        "upgrades_to":[3]
     },
     {
         "id":2,
-        "name":"test",
-        "biome":1,
-        "upgrade":[{"id":2, "mat":[[], []]}, {"id":3, "mat":[[], []]}]
+        "name":"vine",
+        "biome":"forest",
+        "requirements":[[0, 3]],
+        "upgrades_to":[3]
     },
     {
         "id":3,
-        "name":"test",
-        "biome":1,
-        "upgrade":[{"id":2, "mat":[[], []]}, {"id":3, "mat":[[], []]}]
+        "name":"supertree",
+        "biome":"forest",
+        "requirements":[[0, 4], [1, 2]],
+        "upgrades_to":[]
+    },
+    {
+        "id":4,
+        "name":"dust",
+        "biome":"forest",
+        "requirements":[],
+        "upgrades_to":[5]
+    },
+    {
+        "id":5,
+        "name":"rock",
+        "biome":"forest",
+        "requirements":[[4, 4]],
+        "upgrades_to":[6]
+    },
+    {
+        "id":6,
+        "name":"statue",
+        "biome":"forest",
+        "requirements":[[2, 2], [5, 5]],
+        "upgrades_to":[]
     }
 ]

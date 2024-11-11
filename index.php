@@ -1,5 +1,40 @@
 <!DOCTYPE html>
 
+<?php 
+// include the composer library
+require_once __DIR__ . '/vendor/autoload.php';
+
+//put into try catch clause
+try {
+ 
+    //1: connect to mongodb atlas
+    $client = 
+    new MongoDB\Client(
+        "mongodb+srv://admin:ILikeBeans1234@cart351.quopp.mongodb.net/?retryWrites=true&w=majority&appName=CART351"
+    );
+    echo("valid connection");
+    echo("<br>");
+
+    //2: connect to collection (that exists):
+$collection = $client->CART351->plantItems;
+//echo($collection);
+ 
+ // use this as reference when creating player login - this INSERTS a NEW object into the collection
+ //3: insert into the collection
+    $insertOneResult = $collection->insertOne([
+        'plant name' => 'cactus',
+        'description' => 'lalllallla',
+        'location' => 'montreal',
+    ]);
+ 
+printf("Inserted %d document(s)\n", $insertOneResult->getInsertedCount());
+var_dump($insertOneResult->getInsertedId());
+    }
+    catch (Exception $e) {
+        echo 'Caught exception: ',  $e->getMessage(), "\n";
+    }
+?>
+
 <head>
     <title>Fantasium</title>
     <meta charset="utf-8" />

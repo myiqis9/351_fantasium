@@ -125,11 +125,7 @@ h2 {
   text-align: center;
   border-radius: 10px;
   background-color: #FDFFE4;
-}
-
-/* remove this once it is possible to select items in exploration */
-#exploration:hover {
-  background-color:#E1F4CB;
+  overflow: hidden;
 }
 
 #terra_name_input {

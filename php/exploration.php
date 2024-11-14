@@ -8,4 +8,7 @@
             <br></br>
             <div id="exploration"></div>
         </div>
-<?php include 'footer.php'; ?>
+    <script src="../js/exploration.js"> </script>
+    <script src="../js/script.js"> </script>
+</body>
+</html>

@@ -15,5 +15,7 @@
                     <input type="text" placeholder="Search" class="search-bar">
                     <br></br>
                   </div>
-</div>
-<?php include 'footer.php'; ?>
+                </div>
+<script src="../js/script.js"> </script>
+</body>
+</html>

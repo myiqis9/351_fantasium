@@ -12,4 +12,7 @@
             </div>
 
         </div>
-<?php include 'footer.php'; ?>
+    <script src="../js/profile.js"> </script>
+    <script src="../js/script.js"> </script>
+</body>
+</html>

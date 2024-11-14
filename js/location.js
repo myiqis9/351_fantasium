@@ -14,6 +14,7 @@ var map = new mapboxgl.Map({
     center: [-73, 45]
 });
 
+const locationBtn = document.getElementById("location").addEventListener("click", getLocation);
 var player = null;
 
 //get player location

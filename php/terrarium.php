@@ -13,4 +13,7 @@
                 <div id="mats-needed">materials needed here</div>
             </div>
         </div>
-<?php include 'footer.php'; ?>
+    <script src="../js/terrarium.js"> </script>
+    <script src="../js/script.js"> </script>
+</body>
+</html>

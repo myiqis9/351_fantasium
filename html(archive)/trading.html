@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Fantasium - Trading</title>
+    <meta charset="utf-8" />
+
+    <!-- style & class scripts -->
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+
+    <!-- mapbox GL -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css" rel="stylesheet" />
+</head>
+
+<body style = "background: #3A2618">
+    <div id="container">
+      <!-- game title and main menu buttons -->
+      <div id="menu">
+        <!-- title will later be replaced by an img -->
+        <h1>Fantasium</h1>
+        <button id="p_profile" onclick="location.href='profile.html'">My profile</button>
+        <button id="p_terrarium" onclick="location.href='terrarium.html'">Terrarium</button>
+        <button id="explore_page" onclick="location.href='exploration.html'">Explore</button>
+        <button id="trading_page" onclick="location.href='trading.html'">Trading</button>
+        <button id="p_inventory" onclick="location.href='inventory.html'">Inventory</button>
+        <button id="community_page" onclick="location.href='community.html'">Community</button>
+      </div>
+      <div id="main">
+            <br></br>
+            <h2>Trading Center</h2>
+            <div class="search-container">
+                <input type="text" placeholder="Trade Number" class="search-bar">
+                <!-- material offered and requested could maybe be a drop down choice in the future? -->
+                <input type="text" placeholder="Material Offered" class="search-bar">
+                <input type="text" placeholder="Material Requested" class="search-bar">
+              </div>
+
+              <button id="new_trade" onclick="location.href='new_trade.html'">Start a new trade</button>
+
+            <!-- all available trades show up here. in the future, the img of the item shows up too -->
+            <div class="trade-container">
+                <p id = trade-number>Trade #238474</p>
+                <div class="trade-box requested-materials">
+                    Materials Requested :
+                    <br></br>
+                    Root
+                  </div>
+                
+                  <div class="trade-box offered-materials">
+                    Materials Offered :
+                    <br></br>
+                      Supertree
+                  </div>
+            </div>
+            <div class="trade-container">
+                <p id = trade-number>Trade #238870</p>
+                <div class="trade-box requested-materials">
+                    Materials Requested :
+                    <br></br>
+                    Root
+                  </div>
+                
+                  <div class="trade-box offered-materials">
+                    Materials Offered :
+                    <br></br>
+                      Supertree
+                  </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- main script.js call -->
+    <script src="../js/trading.js"> </script>
+</body>
+</html>

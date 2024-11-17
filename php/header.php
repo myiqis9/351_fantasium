@@ -1,5 +1,26 @@
-<!DOCTYPE html>
+<?php 
+//include the composer library
+require_once __DIR__ . '/vendor/autoload.php';
+use Dotenv\Dotenv;
 
+//put into try catch clause
+try {
+    $dotenv = Dotenv::createImmutable(paths: __DIR__);
+    $dotenv->load();
+    $uri = $_ENV['URI'];
+ 
+    //1: connect to mongodb atlas
+    $client = 
+    new MongoDB\Client(uri: $uri);
+    echo("valid connection");
+    echo("<br>");
+}
+    catch (Exception $e) {
+        echo 'Caught exception: ',  $e->getMessage(), "\n";
+    }
+?>
+
+<!DOCTYPE html>
 <head>
     <title>Fantasium</title>
     <meta charset="utf-8" />

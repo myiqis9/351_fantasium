@@ -1,7 +1,18 @@
+@font-face {
+  font-family: Graphik;
+  src: url('../assets/fonts/Graphik Family/Graphik-Regular-Trial.otf');
+}
+
+@font-face {
+  font-family: GraphikBold;
+  src: url('../assets/fonts/Graphik Family/Graphik-Semibold-Trial.otf');
+}
+
 body {
   display: flex;
   justify-content: center;
   margin: 100px;
+  font-family: Graphik;
 }
 
 #container {
@@ -10,6 +21,7 @@ body {
 
 h2 {
   text-decoration: underline;
+  font-family: GraphikBold;
 }
 
 #menu {
@@ -28,7 +40,7 @@ h2 {
   margin-top: 2%;
   text-align: center;
   /* font-family: calibri; */
-  font-size: 14pt;
+  font-size: 12pt;
   border-radius: 20px;
   padding: 5px;
   background-color: #ECF39E;
@@ -311,4 +323,9 @@ h2 {
 .offered-materials {
   background-color: rgba(80, 162, 167, 0.4);
   border-radius: 0 20px 20px 0;
+}
+
+p {
+  padding-left: 50px;
+  padding-right: 50px;
 }

@@ -326,6 +326,10 @@ h2 {
 }
 
 p {
-  padding-left: 50px;
-  padding-right: 50px;
+  padding-left: 75px;
+  padding-right: 75px;
+}
+
+#register {
+  visibility: hidden;
 }

@@ -1,7 +1,7 @@
 <?php include 'header.php'; ?>
         <div id="main">
             <br></br>
-            <h2>Welcome!</h2>
+            <h2>Welcome back!</h2>
             <form id='login'>
                 <label for="username">Username : </label>
                 <input type="text" id="username" name="username" placeholder="Enter Username">

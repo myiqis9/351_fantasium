@@ -14,8 +14,13 @@ var map = new mapboxgl.Map({
     center: [-73, 45]
 });
 
+const connectEl = document.getElementById("connect");
+const txtEl = document.getElementById("connectTxt");
+const regForm = document.getElementById("register").addEventListener("submit", submitForm); 
 const locationBtn = document.getElementById("location").addEventListener("click", getLocation);
 var player = null;
+
+//regForm.style.visibility = "hidden";
 
 //get player location
 function getLocation() {
@@ -23,7 +28,7 @@ function getLocation() {
       navigator.geolocation.getCurrentPosition(usePosition, showError);
     } 
     else {
-      console.log("Geolocation is not supported by this browser.");
+      txtEl.innerText = "Geolocation is not supported by this browser.";
     }
   }
   
@@ -80,28 +85,32 @@ function getLocation() {
   }
   
   function showError(error) {
+    let errorMsg;
+
     switch(error.code) {
       case error.PERMISSION_DENIED:
-        console.log("User denied the request for Geolocation.");
+        errorMsg = "User denied the request for Geolocation.";
         break;
       case error.POSITION_UNAVAILABLE:
-        console.log("Location information is unavailable.");
+        errorMsg = "Location information is unavailable.";
         break;
       case error.TIMEOUT:
-        console.log("The request to get user location timed out.");
+        errorMsg = "The request to get user location timed out.";
         break;
       case error.UNKNOWN_ERROR:
-        console.log("An unknown error occurred.");
+        errorMsg = "An unknown error occurred.";
         break;
     }
+
+    txtEl.innerHTML = "An error has occurred in trying to fetch your location. <br> Please refresh the page, check your browser settings and try again. <br><br> ERROR: " + errorMsg;
   }
 
-  // function findPlayerBiome(long, lat) {
-  //   console.log(map);
-  //   map.center = [long, lat];//area around player location
-  //   console.log("Map center: " + map.center);
-  //   map.panTo(map.center, {duration: 200}).on('moveend', () => {
-  //       const playerPos = map.queryRenderedFeatures();
-  //       console.log(playerPos[0].properties);
-  //   });
-  // }
+  function submitForm() {
+    let data = new FormData(regForm);
+    for(let pair of data.entries()) {
+      console.log(pair[0] + ' - ' + pair[1]);
+    }
+
+    fetch('../php/register.php')
+    .then()
+  }

@@ -1,5 +1,5 @@
 <?php include 'header.php'; ?>
-        <div id="main">
+    <div id="main">
             <br></br>
             <h2>Welcome to Fantasium!</h2>
             <p>Come build your dream terrarium in a fantasy world inspired by your everyday flora and fauna!</p>

@@ -2,6 +2,7 @@
 //include the composer library
 require_once __DIR__ . '/vendor/autoload.php';
 use Dotenv\Dotenv;
+session_start();
 
 //put into try catch clause
 try {

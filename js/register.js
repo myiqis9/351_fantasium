@@ -16,11 +16,11 @@ var map = new mapboxgl.Map({
 
 const connectEl = document.getElementById("connect");
 const txtEl = document.getElementById("connectTxt");
-const regForm = document.getElementById("register").addEventListener("submit", submitForm); 
-const locationBtn = document.getElementById("location").addEventListener("click", getLocation);
-var player = null;
-
-//regForm.style.visibility = "hidden";
+const regForm = document.getElementById("register");
+regForm.addEventListener("submit", submitForm); 
+const locationBtn = document.getElementById("location");
+locationBtn.addEventListener("click", getLocation);
+let biome = null;
 
 //get player location
 function getLocation() {
@@ -44,44 +44,45 @@ function getLocation() {
 
   function findPlayerBiome(pos) {
     console.log(pos.BIOME_NAME);
-    player = new Player("test", null, null, [], [], []);
 
     switch(pos.BIOME_NAME) {
       case "Tropical & Subtropical Moist Broadleaf Forests":
       case "Tropical & Subtropical Dry Broadleaf Forests":
-        player.biome = "tropical";
+        biome = "tropical";
         break;
 
       case "Tundra":
       case "Boreal Forests/Taiga":
       case "Rock and Ice":
       case "Temperate Conifer Forests":
-        player.biome = "taiga"
+        biome = "taiga"
         break;
       
       case "Mediterranean Forests, Woodlands & Scrub":
       case "Flooded Grasslands & Savannas":
       case "Mangroves":
-        player.biome = "waterside";
+        biome = "waterside";
         break;
 
       case "Temperate Broadleaf & Mixed Forests":
       case "Tropical & Subtropical Coniferous Forests":
-        player.biome = "forest";
+        biome = "forest";
         break;
 
       case "Montane Grasslands & Shrublands":
       case "Temperate Grasslands, Savannas & Shrublands":
-        player.biome = "grassland";
+        biome = "grassland";
         break;
 
       case "Tropical & Subtropical Grasslands, Savannas & Shrublands":
       case "Deserts & Xeric Shrublands":
-        player.biome = "desert";
+        biome = "desert";
         break;
     }
 
-    console.log(player);
+    connectEl.innerHTML = `You are in the <b>${biome}</b> biome!<br><br>`;
+    locationBtn.style.visibility = "hidden";
+    regForm.style.visibility = "visible";
   }
   
   function showError(error) {

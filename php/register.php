@@ -9,16 +9,20 @@
                                     Press the button below to get your geolocation. <br> Don't forget to enable it in your browser!<br></p>
                 <button id="location">Click me!!!</button>
             </div>
-            <form id='register' action="" method="" enctype="">
+            <form id="register" action="" method="" enctype="">
                 <label for="username">Username : </label>
                 <input type="text" id="username" name="username" placeholder="Enter Username">
                 <br> </br>
                 
                 <label for="password">Password : </label>
-                <input type="password" id="password" name="password" placeholder="Enter Password">
+                <input type="password" id="password1" name="password1" placeholder="Enter Password">
                 <br> </br>
 
-                <button type="submit">Login</button>
+                <label for="password">Re-enter Password : </label>
+                <input type="password" id="password2" name="password2" placeholder="Re-enter Password">
+                <br> </br>
+
+                <button type="submit">Register</button>
             </form>
         </div>
         <div id="map"></div>

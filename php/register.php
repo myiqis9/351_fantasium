@@ -24,8 +24,8 @@
 
                 <button type="submit">Register</button>
             </form>
+            <div id="map"></div>
         </div>
-        <div id="map"></div>
         <script src="../js/register.js"> </script>
         <script src="../js/script.js"> </script>
 </body>

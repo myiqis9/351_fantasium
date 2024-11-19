@@ -13,8 +13,6 @@ try {
     //1: connect to mongodb atlas
     $client = 
     new MongoDB\Client(uri: $uri);
-    echo("valid connection");
-    echo("<br>");
 }
     catch (Exception $e) {
         echo 'Caught exception: ',  $e->getMessage(), "\n";

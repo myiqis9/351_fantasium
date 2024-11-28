@@ -39,12 +39,12 @@ try {
     <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css" rel="stylesheet" />
 </head>
 
-<body style = "background: #3A2618">
     <div id="container">
       <!-- game title and main menu buttons -->
       <div id="menu">
-        <!-- title will later be replaced by an img -->
-        <h1>Fantasium</h1>
+        <a href="index.php">
+            <img src="../assets/images/fantasium-logo1.png" width="314" height="125">
+        </a>
         <button id="p_profile" onclick="location.href='profile.php'">My profile</button>
         <button id="p_terrarium" onclick="location.href='terrarium.php'">Terrarium</button>
         <button id="explore_page" onclick="location.href='exploration.php'">Explore</button>

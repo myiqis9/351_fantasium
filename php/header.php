@@ -38,8 +38,12 @@ try {
     <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css" rel="stylesheet" />
 </head>
-
     <div id="container">
+        <!-- user info at the top of the main box -->
+        <div id="top-info">
+            <p id="biomeInfo">Biome</p>
+            <a href="profile.php"> <p id ="user">Username</p></a>
+        </div>
       <!-- game title and main menu buttons -->
       <div id="menu">
         <a href="index.php">

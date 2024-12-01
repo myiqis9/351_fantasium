@@ -15,19 +15,39 @@ body {
   font-family: Graphik;
   margin: 0;
   padding: 0;
-  background-image: url('../assets/images/bg-top.png'), url('../assets/images/bg-pattern3.png');
+  background-image: url('../assets/images/bg-top.png'), url('../assets/images/bg-pattern5.png');
   background-repeat: repeat;
-  background-size: 500px, 400px;
+  background-size: 700px, 600px;
   background-position: top left;
 }
 
 #container {
   display: flex;
+  padding-top: 75px;
+  position: relative;
 }
 
 h2 {
   text-decoration: underline;
   font-family: GraphikBold;
+}
+
+#top-info {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  font-size: 20px;
+  color : #FDFFE4;
+  display: flex;
+  background-color: #9CCBC2;
+  z-index: 0;
+  border-radius: 20px 20px 0 0;
+  font-weight: bold;
+}
+
+#top-info a {
+  color: #FDFFE4;
+  text-decoration: none;
 }
 
 #menu {
@@ -45,13 +65,13 @@ h2 {
   height: 100%;
   margin-top: 2%;
   text-align: center;
-  /* font-family: calibri; */
   font-size: 12pt;
   border-radius: 20px;
   padding: 5px;
   background-color: #ECF39E;
-  box-shadow: 0 0 15px rgb(251, 187, 201);
+  box-shadow: 0 0 15px #ECF39E;
   border: 10px solid #30542F;
+  z-index: 1;
 }
 
 #main button {
@@ -108,6 +128,7 @@ h2 {
   font-weight: bold;
   cursor: pointer;
   margin: 3px 0;
+  box-shadow: 0 0 10px #ECF39E;
 }
 
 #menu button:hover {

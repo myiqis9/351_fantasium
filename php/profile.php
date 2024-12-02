@@ -12,7 +12,7 @@
             </div>
 
         </div>
-    <script src="../js/profile.js"> </script>
     <script src="../js/script.js"> </script>
+    <script src="../js/profile.js"> </script>
 </body>
 </html>

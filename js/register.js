@@ -109,9 +109,12 @@ function getLocation() {
   function submitForm() {
     let data = new FormData(regForm);
     for(let pair of data.entries()) {
-      console.log(pair[0] + ' - ' + pair[1]);
+      data.append(pair[0], pair[1]);
     }
 
-    fetch('../php/register.php')
-    .then()
+    //fetch
+    fetch('register.php', {
+        method: 'POST',
+        body: data
+    })
   }

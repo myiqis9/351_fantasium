@@ -1,4 +1,48 @@
 <?php include 'header.php'; ?>
+
+<?php
+    //checks for posted data
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        //user/pw variables
+        $user = $_POST['username'];
+        $pass = $_POST['password'];
+    
+        $collection = $client->CART351->user_list;
+    
+        $currentUser = $collection->findOne(["username" => $user]);
+        
+        if ($resultObject != NULL) {
+        // Verify the hash against the password entered 
+        $verify = password_verify($passName,$resultObject["encryptedPass"]);
+    
+            if ($verify) {
+                //start session with user
+                $_SESSION["user"] = $user;
+            } else {
+                echo "incorrect_pass";
+            }
+        } 
+        else {
+            echo "incorrect_user";
+        }
+        exit;
+    }
+
+    //checks for get data (recieved)
+    if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET["action"])) {
+        $collection = $client->CART351->user_list;
+
+        $result = $collection->find([]);
+        $returnarray = [];
+
+        foreach ($result as $item) {
+            $returnarray[] = $item;
+        }
+        echo json_encode($returnarray);
+        exit();
+    }//POST
+?>
+
         <div id="main">
             <br></br>
             <h2>Welcome back!</h2>
@@ -19,5 +63,6 @@
             <div id="map"></div>
         </div>
         <script src="../js/script.js"> </script>
+        <script src="../js/login.js"> </script>
 </body>
 </html>

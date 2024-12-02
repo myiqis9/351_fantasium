@@ -20,7 +20,7 @@
                     </div>
                 </div>
             </div>
-    <script src="../js/community.js"> </script>
     <script src="../js/script.js"> </script>
+    <script src="../js/community.js"> </script>
 </body>
 </html>

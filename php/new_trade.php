@@ -17,5 +17,6 @@
                   </div>
                 </div>
 <script src="../js/script.js"> </script>
+<script src="../js/new_trade.js"> </script>
 </body>
 </html>

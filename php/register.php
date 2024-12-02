@@ -1,4 +1,42 @@
 <?php include 'header.php'; ?>
+
+<?php
+    //checks for posted data
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        //user/pw variables
+        $user = $_POST['username'];
+        $pass1 = $_POST['password1'];
+        $pass2 = $_POST['password2'];
+        $pass = $_POST['biome'];
+
+        $collection = $client->CART351->user_list;
+        $currentUser = $collection->findOne(["username" => $user]);
+    
+        if ($currentUser != NULL) {
+            //username is already in use
+        }
+        else if($pass1 !== $pass2) {
+            //passwords dont match
+        }
+        else {
+            //creating user
+            //encryping password
+            $hash = password_hash($pass1, PASSWORD_DEFAULT); 
+
+            $insert = $collection->insertOne([
+                'username' => $user,
+                'password' => $pass1,
+                'biome' => $biome,
+                'inventory' => [],
+                'terrarium' => [],
+                'trades' => [],
+                'friendlist' => []
+            ]);
+            echo 'success';
+        }
+        exit;
+    }
+?>
         <div id="main">
             <br></br>
             <h2>Create a new account!</h2>
@@ -26,7 +64,7 @@
             </form>
             <div id="map"></div>
         </div>
-        <script src="../js/register.js"> </script>
         <script src="../js/script.js"> </script>
+        <script src="../js/register.js"> </script>
 </body>
 </html>

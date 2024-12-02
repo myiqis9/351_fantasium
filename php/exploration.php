@@ -8,7 +8,7 @@
             <br></br>
             <div id="exploration"></div>
         </div>
-    <script src="../js/exploration.js"> </script>
     <script src="../js/script.js"> </script>
+    <script src="../js/exploration.js"> </script>
 </body>
 </html>

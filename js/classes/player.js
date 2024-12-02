@@ -8,11 +8,16 @@ class Player {
         this.friendlist = json.friendlist;
     }
 
-    addToInventory(item, amount) {
-        
+    addToInventory(it, am) {
+        //add item to inventory
         for(let i of this.inventory) {
-            if(i.item.id = item.id) i.amount++;
-            else this.inventory.add({item: item, amount: amount});
+            if(i.item == it) {
+                i.amount += am;
+                return;
+            }
         }
+        let obj = {item: it, amount: am}
+        this.inventory.push(obj);
+        console.log(this.inventory);
     }
 }

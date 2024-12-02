@@ -1,4 +1,4 @@
-var jsonItems;
+let jsonIt;
 
 function loaded() {
     console.log(player);
@@ -7,7 +7,7 @@ function loaded() {
 
 fetch('../json/items.json')
     .then((response) => response.json())
-    .then((json) => { jsonItems = json; done(); })
+    .then((json) => { jsonItems = json; })
     .catch(error => console.error('Error:', error));
 
 var inventoryEl = document.getElementById("inventory");
@@ -17,12 +17,12 @@ function loadInventory() {
 
     console.log(player.inventory);
 
-    player.inventory.forEach((i) => {
-        var item;
+    for(let i of player.inventory) {
+        let item;
 
-        for (j of jsonItems) {
-            if (i.item === j.id) { item = j; break; }
-        }
+        jsonItems.forEach(j => {
+            if (i.item === j.id) { item = j; }
+        });
 
         console.log("creating " + item.name)
         const itemEl = document.createElement("div");
@@ -44,5 +44,5 @@ function loadInventory() {
         itemEl.addEventListener("click", () => {
             console.log(item);
         });
-    });
+    }
 }

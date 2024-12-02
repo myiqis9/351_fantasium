@@ -4,77 +4,88 @@
         "name":"darkseed",
         "biome":"forest",
         "requirements":[],
-        "upgrades_to":[1, 2, 3]
+        "upgrades_to":[1, 2, 3],
+        "rarity": "common"
     },
     {
         "id":1,
         "name":"darktree",
         "biome":"forest",
         "requirements":[],
-        "upgrades_to":[3, 9]
+        "upgrades_to":[3, 9],
+        "rarity": "srare"
     },
     {
         "id":2,
         "name":"darkflower",
         "biome":"forest",
-        "requirements":[[0, 0]],
-        "upgrades_to":[3]
+        "requirements":[],
+        "upgrades_to":[3],
+        "rarity": "rare"
     },
     {
         "id":3,
         "name":"supertree",
         "biome":"forest",
         "requirements":[[0, 7], [1, 2]],
-        "upgrades_to":[]
+        "upgrades_to":[],
+        "rarity": "no"
     },
     {
         "id":4,
         "name":"dust",
         "biome":"forest",
         "requirements":[],
-        "upgrades_to":[5]
+        "upgrades_to":[5],
+        "rarity": "common"
     },
     {
         "id":5,
         "name":"rock",
         "biome":"forest",
         "requirements":[[4, 4]],
-        "upgrades_to":[6]
+        "upgrades_to":[6],
+        "rarity": "no"
     },
     {
         "id":6,
         "name":"statue",
         "biome":"forest",
         "requirements":[[2, 2], [5, 5]],
-        "upgrades_to":[]
+        "upgrades_to":[],
+        "rarity": "no"
     },
     {
         "id":7,
         "name":"fireflies",
         "biome":"forest",
         "requirements":[],
-        "upgrades_to":[8]
+        "upgrades_to":[8],
+        "rarity": "srare"
     },
     {
         "id":8,
         "name":"lantern",
         "biome":"forest",
         "requirements":[[7,5]],
-        "upgrades_to":[]
+        "upgrades_to":[],
+        "rarity": "no"
     },
     {
         "id":9,
         "name":"darkwood",
         "biome":"forest",
         "requirements":[[1,2], [10,10]],
-        "upgrades_to":[]
+        "upgrades_to":[],
+        "rarity": "no"
     },
     {
         "id":10,
         "name":"mushroom",
         "biome":"forest",
         "requirements":[],
-        "upgrades_to":[9]
+        "upgrades_to":[9],
+        "rarity": "rare"
     },
 
 

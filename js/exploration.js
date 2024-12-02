@@ -2,22 +2,67 @@ let tileSize = 56;
 let cols, rows;
 let charX, charY;
 let load = false;
+let jsonItems;
 
-function getRarity() {
-  var gen = Math.floor(Math.random() * 100);
-  console.log(gen);
-  if (gen < 2) return 'ub';
-  if (gen < 5) return 'legends';
-  if (gen < 13) return 'mythics';
-  if (gen < 23) return 'galarians';
-  if (gen < 39) return 'alolans';
+fetch('../json/items.json')
+  .then((response) => response.json())
+  .then((json) => { jsonItems = json; })
+  .catch(error => console.error('Error:', error));
 
-  return 'common';
-}
 
 function loaded() {
   console.log(player);
   load = true;
+}
+
+//randomizer
+function getRarity() {
+  var r = Math.floor(Math.random() * 100);
+  console.log(r);
+  //if (r < 7) return 'urare';
+  if (r < 21) return 'srare';
+  if (r < 42) return 'rare';
+  return 'common';
+}
+
+function explore() {
+  let biomeItems = [];
+  let returnArray = [];
+  let count = 0;
+
+  jsonItems.forEach(i => {
+    if (i.biome == player.biome) biomeItems.push(i);
+  });
+
+  for(let i = 0; count < 3; i++) {
+    let r = getRarity();
+    let n = Math.floor(Math.random() * biomeItems.length);
+    if (biomeItems[n].rarity == r) {
+      console.log(`adding ${biomeItems[n].name} to inventory`)
+      player.addToInventory(biomeItems[n].id, 1);
+      count++;
+    }
+  }
+  console.log(player.inventory);
+  updatePlayerInventory();
+}
+
+function updatePlayerInventory() {
+  let data = new FormData();
+  data.append('inventory', JSON.stringify(player.inventory));
+
+  fetch('exploration.php', {
+    method: 'POST',
+    body: data
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .then((response) => {
+      if (response.message == 'success') {
+        console.log('Successfully updated inventory.')
+      }
+    })
 }
 
 function setup() {

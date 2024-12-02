@@ -28,10 +28,10 @@
                 'username' => $user,
                 'password' => $hash,
                 'biome' => $biome,
-                'inventory' => "[]",
-                'terrarium' => "[]",
-                'trades' => "[]",
-                'friendlist' => "[]"
+                'inventory' => [],
+                'terrarium' => [],
+                'trades' => [],
+                'friendlist' => []
             ]);
             $msg = array('message' => 'success');
             echo json_encode($msg);

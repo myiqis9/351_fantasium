@@ -1,5 +1,4 @@
-<?php include 'header.php'; ?>
-
+<?php include 'init.php'; ?>
 <?php
     //checks for posted data
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -7,16 +6,18 @@
         $user = $_POST['username'];
         $pass1 = $_POST['password1'];
         $pass2 = $_POST['password2'];
-        $pass = $_POST['biome'];
+        $biome = $_POST['biome'];
 
         $collection = $client->CART351->user_list;
         $currentUser = $collection->findOne(["username" => $user]);
     
         if ($currentUser != NULL) {
-            //username is already in use
+            $msg = array('message' => 'invalid_user');
+            echo json_encode($msg);
         }
         else if($pass1 !== $pass2) {
-            //passwords dont match
+            $msg = array('message' => 'invalid_pass');
+            echo json_encode($msg);
         }
         else {
             //creating user
@@ -25,18 +26,20 @@
 
             $insert = $collection->insertOne([
                 'username' => $user,
-                'password' => $pass1,
+                'password' => $hash,
                 'biome' => $biome,
-                'inventory' => [],
-                'terrarium' => [],
-                'trades' => [],
-                'friendlist' => []
+                'inventory' => "[]",
+                'terrarium' => "[]",
+                'trades' => "[]",
+                'friendlist' => "[]"
             ]);
-            echo 'success';
+            $msg = array('message' => 'success');
+            echo json_encode($msg);
         }
         exit;
     }
 ?>
+<?php include 'header.php'; ?>
         <div id="main">
             <br></br>
             <h2>Create a new account!</h2>
@@ -47,7 +50,7 @@
                                     Press the button below to get your geolocation. <br> Don't forget to enable it in your browser!<br></p>
                 <button id="location">Click me!!!</button>
             </div>
-            <form id="register" action="" method="" enctype="">
+            <form id="register" action="" method="" enctype="" onsubmit="return false">
                 <label for="username">Username : </label>
                 <input type="text" id="username" name="username" placeholder="Enter Username">
                 <br> </br>

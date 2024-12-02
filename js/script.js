@@ -1,23 +1,35 @@
-let user = null;
+let player = null;
 let loggedIn = false;
 
-let userDisplay = document.getElementById('user');
-let biomeDisplay = document.getElementById('biome');
+let userInfo = document.getElementById('userInfo');
+let biomeInfo = document.getElementById('biomeInfo');
 
-function loadUser() {
-    fetch('header.php?action=load')
-        .then((response) => {
-            if(response == "!NOUSER!") {
-                loggedIn = false;
-                return response; //to avoid errors
+
+fetch('header.php?action=load')
+.then((response) => {
+    return response.json();
+})
+.then((response) => {
+    for(let key in response) {
+        if(key == 'message') {
+            loggedIn = false;
+            if(response[key] == 'no_user') {
+                console.log('no user');
+                break;
             }
-            else {
-                loggedIn = true;
-                return response.json();
-            }
-        })
-        .then((response) => {
-            if(loggedIn) user = response;
-        })
-        .catch
+        }
+        console.log('logged in');
+        player = new Player(response);
+    }
+})
+
+if(loggedIn) {
+    biomeInfo.style.visibility = 'visible';
+    biomeInfo.innerHTML = `${player.biome.toUpperCase()}`;
+    userInfo.innerHTML = `<a href="profile.php">${player.username.toUpperCase()}</a> | LOG OUT`;
+
+}
+else {
+    biomeInfo.style.visibility = "hidden";
+    userInfo.innerHTML = `<a href="login.php">LOGIN</a>`;
 }

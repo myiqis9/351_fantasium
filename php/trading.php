@@ -1,3 +1,5 @@
+<?php include 'init.php'; ?>
+
 <?php include 'header.php'; ?>
 <div id="main">
 <br></br>

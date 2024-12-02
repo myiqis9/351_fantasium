@@ -1,37 +1,3 @@
-<?php 
-//include the composer library
-require_once __DIR__ . '/vendor/autoload.php';
-use Dotenv\Dotenv;
-session_start();
-
-//put into try catch clause
-try {
-    $dotenv = Dotenv::createImmutable(paths: __DIR__);
-    $dotenv->load();
-    $uri = $_ENV['URI'];
- 
-    //1: connect to mongodb atlas
-    $client = new MongoDB\Client(uri: $uri);
-}
-    catch (Exception $e) {
-        echo 'Caught exception: ',  $e->getMessage(), "\n";
-    }
-
-    //checks for get username
-    if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET["action"])) {
-        if(isset($_SESSION['user'])) {
-            //find user in database
-            $collection = $client->CART351->user_list;
-            $currentUser = $collection->findOne(["username" => $_SESSION['user']]);
-
-            echo json_encode($currentUser);
-        }
-        else {
-                echo("!NOUSER!");
-        }
-    }
-?>
-
 <!DOCTYPE html>
 <head>
     <title>Fantasium</title>
@@ -46,6 +12,7 @@ try {
     <!-- js classes -->
     <script src="../js/classes/player.js"></script>
     <script src="../js/classes/item.js"></script>
+    <script src="../js/classes/trade.js"> </script>
 
     <!-- mapbox GL -->
     <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js"></script>
@@ -54,8 +21,8 @@ try {
     <div id="container">
         <!-- user info at the top of the main box -->
         <div id="top-info">
-            <p id="biomeInfo">Biome</p>
-            <a href="profile.php"> <p id ="userInfo">Username</p></a>
+            <p id="biomeInfo"></p>
+            <p id ="userInfo"></p>
         </div>
       <!-- game title and main menu buttons -->
       <div id="menu">

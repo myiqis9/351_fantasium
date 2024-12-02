@@ -1,5 +1,4 @@
-<?php include 'header.php'; ?>
-
+<?php include 'init.php'; ?>
 <?php
     //checks for posted data
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -13,17 +12,19 @@
         
         if ($resultObject != NULL) {
         // Verify the hash against the password entered 
-        $verify = password_verify($passName,$resultObject["encryptedPass"]);
+        $verify = password_verify($pass, $resultObject["password"]);
     
             if ($verify) {
                 //start session with user
                 $_SESSION["user"] = $user;
             } else {
-                echo "incorrect_pass";
+                $msg = array('message' => 'incorrect_pass');
+                echo json_encode($msg);
             }
         } 
         else {
-            echo "incorrect_user";
+            $msg = array('message' => 'incorrect_user');
+            echo json_encode($msg);
         }
         exit;
     }
@@ -42,6 +43,7 @@
         exit();
     }//POST
 ?>
+<?php include 'header.php'; ?>
 
         <div id="main">
             <br></br>

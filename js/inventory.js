@@ -1,17 +1,17 @@
-var jsonItems, jsonPlayer;
+mainEl = document.getElementById('main');
+
+if(!loggedIn) {
+    mainEl = innerHTML = 'You must be logged in to view this page!';
+}
+
+var jsonItems;
 
 fetch('../json/items.json')
 .then((response) => response.json())
 .then((json) => { jsonItems = json; done();})
 .catch(error => console.error('Error:', error));
 
-fetch('../json/player.json')
-.then((response) => response.json())
-.then((json) => { jsonPlayer = json; done();})
-.catch(error => console.error('Error:', error));
-
 var loaded = 0;
-var player;
 var inventoryEl = document.getElementById("inventory");
 
 function done() {
@@ -20,8 +20,7 @@ function done() {
 }
 
 function loadInventory() {
-    console.log("Player: " + jsonPlayer.username);
-    player = new Player(jsonPlayer);
+    console.log("Player: " + player.username);
 
     console.log(player.inventory);
 

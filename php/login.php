@@ -60,7 +60,7 @@
             <br></br>
             <h2>Welcome back!</h2>
             <p id='errorMsg'></p>
-            <form id='login'>
+            <form id='login' onsubmit="return false">
                 <label for="username">Username : </label>
                 <input type="text" id="username" name="username" placeholder="Enter Username">
                 <br> </br>

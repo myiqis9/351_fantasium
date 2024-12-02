@@ -1,9 +1,19 @@
-  let tileSize = 56;
-  let cols, rows;
-  let charX, charY;
+mainEl = document.getElementById('main');
+
+if(!loggedIn) {
+    mainEl = innerHTML = 'You must be logged in to view this page!';
+}
+
+let tileSize = 56;
+let cols, rows;
+let charX, charY;
   
-  function setup() {
-    const canvas = createCanvas(675, 450);
+function setup() {
+  const canvas = createCanvas(675, 450);
+}
+
+function setup() {
+    const canvas = createCanvas(675, 500);
     canvas.parent("exploration");
     
     //calculate the number of columns and rows based on canvas size

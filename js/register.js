@@ -119,6 +119,7 @@ function getLocation() {
       return response.json();
     })
     .then((response) => {
+      console.log(response);
       if(response.message == 'success') {
         connectEl.innerHTML = `Your account has been created! You may now <a href='login.php'>login</a>!<br>`;
         regForm.style.visibility = "hidden";

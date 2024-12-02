@@ -38,7 +38,7 @@ function loadInventory() {
 
         //create image and txt
         const itemImg = document.createElement("img");
-        itemImg.src = `../assets/images/${item.name}.png`;
+        itemImg.src = `../assets/images/items/${item.name}.png`;
         itemImg.classList.add("item-image");
         const itemName = document.createElement("p");
         itemName.innerText = `(${i.amount}) ${item.name}`;

@@ -15,8 +15,8 @@
                 <div id="mats-needed">materials needed here</div>
             </div>
         </div>
-    <script src="../js/script.js"> </script>
     <script src="../js/terrarium.js"> </script>
+    <script src="../js/script.js"> </script>
 
 </body>
 </html>

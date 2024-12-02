@@ -8,7 +8,7 @@
             <div id="inventory">
             </div>
         </div>
-    <script src="../js/script.js"> </script>
     <script src="../js/inventory.js"> </script>
+    <script src="../js/script.js"> </script>
 </body>
 </html>

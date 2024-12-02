@@ -1,23 +1,16 @@
-mainEl = document.getElementById('main');
-
-if(!loggedIn) {
-    mainEl = innerHTML = 'You must be logged in to view this page!';
-}
-
 var jsonItems;
 
-fetch('../json/items.json')
-.then((response) => response.json())
-.then((json) => { jsonItems = json; done();})
-.catch(error => console.error('Error:', error));
-
-var loaded = 0;
-var inventoryEl = document.getElementById("inventory");
-
-function done() {
-    loaded++;
-    if(loaded == 2) loadInventory();
+function loaded() {
+    console.log(player);
+    loadInventory();
 }
+
+fetch('../json/items.json')
+    .then((response) => response.json())
+    .then((json) => { jsonItems = json; done(); })
+    .catch(error => console.error('Error:', error));
+
+var inventoryEl = document.getElementById("inventory");
 
 function loadInventory() {
     console.log("Player: " + player.username);
@@ -27,8 +20,8 @@ function loadInventory() {
     player.inventory.forEach((i) => {
         var item;
 
-        for(j of jsonItems) {
-            if(i.item === j.id) { item = j; break; }
+        for (j of jsonItems) {
+            if (i.item === j.id) { item = j; break; }
         }
 
         console.log("creating " + item.name)
@@ -48,8 +41,7 @@ function loadInventory() {
 
         //append to inventory
         inventoryEl.appendChild(itemEl);
-        itemEl.addEventListener("click", ()=>
-        {
+        itemEl.addEventListener("click", () => {
             console.log(item);
         });
     });

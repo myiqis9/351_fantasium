@@ -3,6 +3,7 @@ const statsEl = document.getElementById("stats");
 const tNameEl = document.getElementById("t_name");
 const terrariumEl = document.getElementById("terrarium");
 
-function loadProfile() {
+function loaded() {
+    console.log(player);
     userEl.innerText = player.username;
 }

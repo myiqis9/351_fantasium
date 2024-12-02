@@ -76,7 +76,7 @@
             <button id="b_register" onclick="location.href='register.php'">Register!</button>
             <div id="map"></div>
         </div>
-        <script src="../js/script.js"> </script>
         <script src="../js/login.js"> </script>
+        <script src="../js/script.js"> </script>
 </body>
 </html>

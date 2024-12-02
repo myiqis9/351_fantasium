@@ -1,33 +1,45 @@
-mainEl = document.getElementById('main');
-
-if(!loggedIn) {
-    mainEl = innerHTML = 'You must be logged in to view this page!';
-}
-
 let tileSize = 56;
 let cols, rows;
 let charX, charY;
-  
-function setup() {
-  const canvas = createCanvas(675, 450);
+let load = false;
+
+function getRarity() {
+  var gen = Math.floor(Math.random() * 100);
+  console.log(gen);
+  if (gen < 2) return 'ub';
+  if (gen < 5) return 'legends';
+  if (gen < 13) return 'mythics';
+  if (gen < 23) return 'galarians';
+  if (gen < 39) return 'alolans';
+
+  return 'common';
+}
+
+function loaded() {
+  console.log(player);
+  load = true;
 }
 
 function setup() {
+  if (load) {
+    console.log(loggedIn);
     const canvas = createCanvas(675, 500);
     canvas.parent("exploration");
-    
+
     //calculate the number of columns and rows based on canvas size
     cols = floor(width / tileSize);
     rows = floor(height / tileSize);
-  
+
     //character's position to the middle of the grid
     charX = floor(cols / 2);
     charY = floor(rows / 2);
   }
-  
-  function draw() {
+}
+
+function draw() {
+  if (load) {
     background(220);
-  
+
     //grid
     for (let i = 0; i < cols; i++) {
       for (let j = 0; j < rows; j++) {
@@ -35,12 +47,12 @@ function setup() {
         rect(i * tileSize, j * tileSize, tileSize, tileSize);
       }
     }
-  
+
     //character (circle for now)
     fill(0, 100, 255);
     ellipse(charX * tileSize + tileSize / 2, charY * tileSize + tileSize / 2, tileSize * 0.6);
   }
-  
+
   function keyPressed() {
     //moving the character w/ arrow keys
     if (keyCode === LEFT_ARROW) {
@@ -53,3 +65,4 @@ function setup() {
       charY = min(charY + 1, rows - 1);
     }
   }
+}

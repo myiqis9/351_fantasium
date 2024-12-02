@@ -116,30 +116,18 @@ function getLocation() {
         body: data
     })
     .then((response) => {
-      return response.text();
+      return response.json();
     })
     .then((response) => {
-      console.log(response);
-      // for(let key in response) {
-      //   if(response[key] == 'success') {
-      //     connectEl.innerHTML = `Your account has been created! You may now <a href='login.php'>login</a>!`;
-      //     regForm.style.visibility = "hidden";
-      //     break;
-      //   }
-      //   else if(response[key] == 'invalid_user') {
-      //     console.log('invalid user');
-      //     connectEl.innerHTML = `This username has already been taken!`;
-      //     break;
-      //   }
-      //   else if(response[key] == 'invalid_pass') {
-      //     console.log('invalid pass');
-      //     connectEl.innerHTML = `Careful! Passwords do not match!`;
-      //     break;
-      //   }
-      //   else {
-      //     connectEl.innerHTML = `Submitted.`;
-      //     console.log(response[key]);
-      //   }
-      // }
+      if(response.message == 'success') {
+        connectEl.innerHTML = `Your account has been created! You may now <a href='login.php'>login</a>!<br>`;
+        regForm.style.visibility = "hidden";
+      }
+      else if (response.message == 'invalid_user') {
+        connectEl.innerHTML = `This username has already been taken!<br><br>`;
+      }
+      else if(response.message == 'invalid_pass') {
+        connectEl.innerHTML = `Careful! Passwords do not match!<br><br>`;
+      }
     })
   }

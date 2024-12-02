@@ -24,9 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET["action"])) {
         $collection = $client->CART351->user_list;
         $currentUser = $collection->findOne(["username" => $_SESSION['user']]);
 
-        foreach($currentUser as $item) {
-           echo json_encode($item);
-        }
+        echo json_encode($currentUser);
     }
     else {
         $msg = array('message' => 'no_user');

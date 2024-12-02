@@ -1,5 +1,14 @@
 <?php include 'init.php'; ?>
+
 <?php
+    //checks if already logged in
+    if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET["action"])) {
+        if(isset($_SESSION['user'])) {
+            $msg = array('message' => 'logged_in');
+            echo json_encode($msg);
+        }
+    }
+
     //checks for posted data
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         //user/pw variables
@@ -7,17 +16,19 @@
         $pass = $_POST['password'];
     
         $collection = $client->CART351->user_list;
-    
         $currentUser = $collection->findOne(["username" => $user]);
+            
+        if ($currentUser != NULL) {
+            // Verify the hash against the password entered 
+            $verify = password_verify($pass, $currentUser["password"]);
         
-        if ($resultObject != NULL) {
-        // Verify the hash against the password entered 
-        $verify = password_verify($pass, $resultObject["password"]);
-    
             if ($verify) {
                 //start session with user
                 $_SESSION["user"] = $user;
-            } else {
+                $msg = array('message' => 'success');
+                echo json_encode($msg);
+            } 
+            else {
                 $msg = array('message' => 'incorrect_pass');
                 echo json_encode($msg);
             }
@@ -48,6 +59,7 @@
         <div id="main">
             <br></br>
             <h2>Welcome back!</h2>
+            <p id='errorMsg'></p>
             <form id='login'>
                 <label for="username">Username : </label>
                 <input type="text" id="username" name="username" placeholder="Enter Username">

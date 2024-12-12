@@ -2,6 +2,7 @@ let load = false;
 let terrarium = [];
 let activeItem = null;
 let jsonItems;
+let bgImage;
 
 
 function loaded() {
@@ -13,6 +14,8 @@ function setup() {
     const canvas = createCanvas(675, 500);
     canvas.parent("terrarium");
 
+    bgImage = loadImage(`../assets/images/terrariumbg.png`);
+
     fetch('../json/items.json')
     .then((response) => response.json())
     .then((json) => { jsonItems = json; load = true; loaded(); })
@@ -23,6 +26,12 @@ function draw() {
     if (load) {
         background(220);
         imageMode(CENTER);
+        
+
+        push();
+        image(bgImage, width/2, height/2, 820, 532);
+        pop();
+
 
         for (let item of terrarium) {
             push();

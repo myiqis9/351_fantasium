@@ -33,7 +33,7 @@ function explore() {
     if (i.biome == player.biome) biomeItems.push(i);
   });
 
-  for(let i = 0; count < 3; i++) {
+  for (let i = 0; count < 3; i++) {
     let r = getRarity();
     let n = Math.floor(Math.random() * biomeItems.length);
     if (biomeItems[n].rarity == r) {
@@ -96,17 +96,17 @@ function draw() {
     fill(0, 100, 255);
     ellipse(charX * tileSize + tileSize / 2, charY * tileSize + tileSize / 2, tileSize * 0.6);
   }
+}
 
-  function keyPressed() {
-    //moving the character w/ arrow keys
-    if (keyCode === LEFT_ARROW) {
-      charX = max(charX - 1, 0);
-    } else if (keyCode === RIGHT_ARROW) {
-      charX = min(charX + 1, cols - 1);
-    } else if (keyCode === UP_ARROW) {
-      charY = max(charY - 1, 0);
-    } else if (keyCode === DOWN_ARROW) {
-      charY = min(charY + 1, rows - 1);
-    }
+function keyPressed() {
+  //moving the character w/ arrow keys
+  if (keyCode === LEFT_ARROW) {
+    charX = max(charX - 1, 0);
+  } else if (keyCode === RIGHT_ARROW) {
+    charX = min(charX + 1, cols - 1);
+  } else if (keyCode === UP_ARROW) {
+    charY = max(charY - 1, 0);
+  } else if (keyCode === DOWN_ARROW) {
+    charY = min(charY + 1, rows - 1);
   }
 }

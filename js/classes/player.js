@@ -34,7 +34,7 @@ class Player {
                     this.inventory.splice(this.inventory.indexOf(i), 1);
                     el.remove();
                 }
-                let obj = {item: i.item, x: 0, y: 0};
+                let obj = {item: it.name, x: 375, y: 375};
                 this.terrarium.push(obj);
                 return;
             }

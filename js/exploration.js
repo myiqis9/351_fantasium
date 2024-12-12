@@ -4,11 +4,6 @@ let charX, charY;
 let load = false;
 let jsonItems;
 
-fetch('../json/items.json')
-  .then((response) => response.json())
-  .then((json) => { jsonItems = json; })
-  .catch(error => console.error('Error:', error));
-
 
 function loaded() {
   console.log(player);
@@ -77,6 +72,11 @@ function setup() {
     //character's position to the middle of the grid
     charX = floor(cols / 2);
     charY = floor(rows / 2);
+
+    fetch('../json/items.json')
+      .then((response) => response.json())
+      .then((json) => { jsonItems = json; })
+      .catch(error => console.error('Error:', error));
   }
 }
 

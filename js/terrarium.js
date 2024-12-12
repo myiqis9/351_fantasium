@@ -1,5 +1,8 @@
+let load = false;
+
 function loaded() {
     console.log(player);
+    load = true;
 }
 
 function setup() {
@@ -9,3 +12,10 @@ function setup() {
         canvas.parent("terrarium");
     }
 }
+
+function draw() {
+    if (load) {
+      background(220);
+      
+    }
+  }

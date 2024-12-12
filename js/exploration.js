@@ -67,7 +67,7 @@ function updatePlayerInventory() {
 function setup() {
   if (load) {
     console.log(loggedIn);
-    const canvas = createCanvas(675, 500);
+    const canvas = createCanvas(675, 450);
     canvas.parent("exploration");
 
     //calculate the number of columns and rows based on canvas size

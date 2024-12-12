@@ -27,7 +27,6 @@ function getRarity() {
 
 function explore() {
   let biomeItems = [];
-  let returnArray = [];
   let count = 0;
 
   jsonItems.forEach(i => {

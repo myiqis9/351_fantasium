@@ -1,4 +1,8 @@
-<?php include 'init.php'; ?>
+<?php include 'init.php';
+
+?>
+
+
 
 <?php include 'header.php'; ?>
 <div id="main">
@@ -14,32 +18,17 @@
               <button id="new_trade" onclick="location.href='new_trade.html'">Start a new trade</button>
 
             <!-- all available trades show up here. in the future, the img of the item shows up too -->
-            <div class="trade-container">
-                <p id = trade-number>Trade #238474</p>
-                <div class="trade-box requested-materials">
-                    Materials Requested :
-                    <br></br>
-                    Root
-                  </div>
-                
-                  <div class="trade-box offered-materials">
-                    Materials Offered :
-                    <br></br>
-                      Supertree
-                  </div>
-            </div>
+
             <div class="trade-container">
                 <p id = trade-number>Trade #238870</p>
-                <div class="trade-box requested-materials">
-                    Materials Requested :
+                <div class="trade-box trade-left eighty">
+                    Materials Offered:
                     <br></br>
                     Root
                   </div>
                 
-                  <div class="trade-box offered-materials">
-                    Materials Offered :
-                    <br></br>
-                      Supertree
+                  <div class="trade-box trade-right twenty">
+                    Offer on Trade
                   </div>
             </div>
 </div>

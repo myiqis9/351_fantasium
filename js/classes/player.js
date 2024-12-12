@@ -8,6 +8,7 @@ class Player {
         this.friendlist = json.friendlist;
     }
 
+    //takes item and amount parameters
     addToInventory(it, am) {
         //add item to inventory
         for(let i of this.inventory) {
@@ -19,5 +20,25 @@ class Player {
         let obj = {item: it, amount: am}
         this.inventory.push(obj);
         console.log(this.inventory);
+    }
+
+    //takes item and element parameters
+    addToTerrarium(it, el) {
+        console.log(`adding ${it.name} to terrarium`);
+
+        //removes 1 of item from inventory
+        for(let i of this.inventory) {
+            if(i.item == it.id) {
+                i.amount--;
+                if(i.amount == 0) {
+                    this.inventory.splice(this.inventory.indexOf(i), 1);
+                    el.remove();
+                }
+                let obj = {item: i.item, x: 0, y: 0};
+                this.terrarium.push(obj);
+                return;
+            }
+
+        }
     }
 }

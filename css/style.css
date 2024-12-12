@@ -337,19 +337,30 @@ h2 {
 }
 
 .trade-box {
-  width: 50%;
   padding: 20px;
   box-shadow: 0 0 10px rgba(114, 156, 93, 0.3);
 }
 
-.requested-materials {
+.trade-left {
   background-color: rgba(239, 164, 139, 0.4);
   border-radius: 20px 0 0 20px;
 }
 
-.offered-materials {
+.trade-right {
   background-color: rgba(80, 162, 167, 0.4);
   border-radius: 0 20px 20px 0;
+}
+
+.eighty {
+  width: 80%;
+}
+
+.twenty {
+  width: 20%;
+}
+
+.fifty {
+  width: 50%;
 }
 
 p {

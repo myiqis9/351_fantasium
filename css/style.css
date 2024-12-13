@@ -95,6 +95,15 @@ h2 {
   color:#729C5D;
 }
 
+.small-button {
+  padding: 10px !important;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+  font-size: 12px !important;
+  margin: auto !important;
+  max-width: 70px !important;
+}
+
 /* container for item upgrade + material needed sections */
 #item-container {
   display: flex;
@@ -285,6 +294,10 @@ h2 {
   margin: 0 auto;
 }
 
+#new-trade {
+  display: flex;
+}
+
 /* individual item boxes */
 .item-box {
   display: flex;
@@ -297,6 +310,7 @@ h2 {
   background-color: #ECF39E;
   box-shadow: 0 0 10px rgba(180, 255, 173, 0.4);
   text-align: center;
+  max-width: 80px;
 }
 
 .item-box:hover {
@@ -307,6 +321,12 @@ h2 {
 .item-image {
   width: 70px;
   height: 70px;
+  margin-bottom: 8px;
+}
+
+.small-item-image {
+  width: 50px;
+  height: 50px;
   margin-bottom: 8px;
 }
 
@@ -343,6 +363,7 @@ h2 {
 .trade-box {
   padding: 20px;
   box-shadow: 0 0 10px rgba(114, 156, 93, 0.3);
+  display: flex;
 }
 
 .trade-left {

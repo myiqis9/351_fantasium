@@ -40,6 +40,7 @@ function loadInventory() {
         itemImg.classList.add("item-name");
         const itemAddBtn = document.createElement("button");
         itemAddBtn.innerHTML = `Add to Terrarium`;
+        itemAddBtn.classList.add("small-button");
         itemAddBtn.addEventListener("click", () => {
             player.addToTerrarium(item, itemEl); //move to terrarium
             updatePlayer(itemName); //post data

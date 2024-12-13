@@ -31,6 +31,7 @@ function setup() {
 function createPlayerTerrarium() {
     //set terrarium name
     terrName.value = player.terr_name;
+    let count = 0;
 
     for (let item of player.terrarium) {
         let i;
@@ -42,15 +43,17 @@ function createPlayerTerrarium() {
         let image = loadImage(`../assets/images/items/${item.item}.png`);
 
         let obj = {
+            num: count,
             id: i.id,
             name: i.name,
             requirements: i.requirements,
             upgrades_to: i.upgrades_to,
             x: item.x,
             y: item.y,
-            img: image
+            img: image,
+            mouseHover: false
         }
-
+        count++;
         terrarium.push(obj);
     }
 }
@@ -59,7 +62,7 @@ function draw() {
     if (load) {
         background(220);
         imageMode(CENTER);
-
+        rectMode(CENTER);
 
         push();
         image(bgImage, width / 2 - 7, height / 2, 870, 532);
@@ -68,7 +71,12 @@ function draw() {
 
         for (let item of terrarium) {
             push();
-            image(item.img, item.x, item.y, 50, 50);
+            if(activeItem !== null && item.num == activeItem.num) {
+                stroke('rgb(100%, 0%, 10%)');
+                strokeWeight(4);
+                rect(square(item.x, item.y, 110));
+            }
+            image(item.img, item.x, item.y, 95, 95);
             pop();
         }
 
@@ -77,16 +85,53 @@ function draw() {
     }
 }
 
+function checkHover() {
+    for (let item of terrarium) {
+        item.mouseHover = mouseIsInside(item) ? true : false;
+    }
+}
+
+function mouseIsInside(obj) {
+    let d = dist(mouseX, mouseY, obj.x, obj.y);
+    if (d < 95 / 2) return true;
+    else return false;
+}
+
+function checkDragging() {
+    if (activeItem !== null && activeDragged == true) {
+        activeItem.x = mouseX;
+        activeItem.y = mouseY;
+
+        activeItem.x = constrain(activeItem.x, 0, width);
+        activeItem.y = constrain(activeItem.y, 0, height);
+    }
+}
+
+function mousePressed() {
+    for(let item of terrarium) {
+        if(item.mouseHover) {
+            activeItem = item;
+            console.log(item.name);
+            break;
+        }
+    }
+}
+
+function mouseDragged() {
+    if(activeItem !== null) activeDragged = true;
+}
+
+function mouseReleased() {
+    if(activeItem !== null && activeDragged) activeDragged = false;
+}
+
 function saveTerrarium() {
     //update the player inventory with changes
-    for(let item of player.terrarium) {
-        for(let it of terrarium) {
-            if(it.name == item.item) {
-                item.x = it.x;
-                item.y = it.y;
-                break;
-            }
-        }
+    player.terrarium = [];
+
+    for (let it of terrarium) {
+        let obj = {item: it.name, x: it.x, y: it.y};
+        player.terrarium.push(obj);
     }
 
     //form

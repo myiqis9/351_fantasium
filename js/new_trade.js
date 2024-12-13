@@ -1,6 +1,10 @@
 let jsonItems;
 let invload = false;
+
 const inventoryEl = document.getElementById("inventory");
+const tradeEl = document.getElementById("trade");
+const tradeBtn = document.getElementById("submit");
+tradeBtn.addEventListener(postTrade);
 
 function loaded() {
     if (invload) {
@@ -39,10 +43,9 @@ function loadInventory() {
         itemName.innerHTML = `(${i.amount}) ${item.name}`;
         itemImg.classList.add("item-name");
         const itemAddBtn = document.createElement("button");
-        itemAddBtn.innerHTML = `Add to Terrarium`;
+        itemAddBtn.innerHTML = `Add to Trade`;
         itemAddBtn.addEventListener("click", () => {
-            player.addToTerrarium(item, itemEl); //move to terrarium
-            updatePlayer(itemName); //post data
+            addToTrade(item);
             itemName.innerHTML = `(${i.amount}) ${item.name}`; //update display
         });
 
@@ -54,22 +57,13 @@ function loadInventory() {
     }
 }
 
-function updatePlayer() {
+function addToTrade(item) {
+    
+}
+
+function postTrade() {
     //posts data
     let data = new FormData();
     data.append('inventory', JSON.stringify(player.inventory));
     data.append('terrarium', JSON.stringify(player.terrarium));
-
-    fetch('inventory.php', {
-        method: 'POST',
-        body: data
-    })
-        .then((response) => {
-            return response.json();
-        })
-        .then((response) => {
-            if (response.message == 'success') {
-                console.log('Successfully updated player.')
-            }
-        })
 }

@@ -15,7 +15,7 @@
                 <input type="text" placeholder="Material Requested" class="search-bar">
               </div>
 
-              <button id="new_trade" onclick="location.href='new_trade.html'">Start a new trade</button>
+              <button id="new_trade" onclick="location.href='new_trade.php'">Start a new trade</button>
 
             <!-- all available trades show up here. in the future, the img of the item shows up too -->
 

@@ -5,15 +5,11 @@
             <br></br>
             <h2>New Trade</h2>
             <div class="trade-container">
-            <div class="trade-box trade-left eighty">
-              Materials Requested :
-              <br></br>
-              Root
+            <div class="trade-box trade-left eighty" id="trade">
             </div>
 
-            <div class="trade-box trade-right twenty">
+            <button class="trade-box trade-right twenty" id="submit">
               Create Trade
-                    
             </div>
 </div>
 

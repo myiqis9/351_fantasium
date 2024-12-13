@@ -74,7 +74,8 @@ function draw() {
             if(activeItem !== null && item.num == activeItem.num) {
                 stroke('rgb(100%, 0%, 10%)');
                 strokeWeight(4);
-                rect(square(item.x, item.y, 110));
+                fill(0, 0, 0, 0);
+                rect(square(item.x, item.y, 105));
             }
             image(item.img, item.x, item.y, 95, 95);
             pop();

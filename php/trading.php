@@ -1,5 +1,15 @@
 <?php include 'init.php';
 
+
+if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET["action"])) {
+  $collection = $client->CART351->trade_list;
+  
+    //updating inventory
+    $insert = $collection->find(
+      [ ] ],
+      [ ]]);
+}
+
 ?>
 
 
@@ -18,19 +28,7 @@
               <button id="new_trade" onclick="location.href='new_trade.php'">Start a new trade</button>
 
             <!-- all available trades show up here. in the future, the img of the item shows up too -->
-
-            <div class="trade-container">
-                <p id = trade-number>Trade #238870</p>
-                <div class="trade-box trade-left eighty">
-                    Materials Offered:
-                    <br></br>
-                    Root
-                  </div>
-                
-                  <div class="trade-box trade-right twenty">
-                    Offer on Trade
-                  </div>
-            </div>
+             <div id="trades"></div>
 </div>
 <script src="../js/trading.js"> </script>
 <script src="../js/script.js"> </script>

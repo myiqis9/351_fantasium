@@ -1,21 +1,29 @@
 let load = false;
 let tradelist = [];
 let tradeListEl = document.getElementById("trades");
+let page = 1;
 
 function loaded() {
-    if (load) {
         console.log(player);
-        loadTrades();
-    }
+        tradeDisplay();
 }
 
-fetch('trading.php?action=load')
-    .then((response) => {
-        return response.json();
+function tradeDisplay() {
+    let data = new FormData();
+    data.append('page', page);
+
+    fetch('trading.php', {
+        method: 'POST'
     })
-    .then((response) => {
-        tradelist = response;
-    })
+        .then((response) => {
+            return response.text();
+        })
+        .then((response) => {
+            tradelist = response;
+            console.log(tradelist);
+            //loadTrades();
+        })
+}
 
 function loadTrades() {
     for (let trade of tradelist) {

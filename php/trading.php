@@ -1,18 +1,16 @@
 <?php include 'init.php';
 
-
-if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET["action"])) {
-  $collection = $client->CART351->trade_list;
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  $tradecoll = $client->CART351->trade_list;
   
-    //updating inventory
-    $insert = $collection->find(
-      [ ] ],
-      [ ]]);
+    //finding list
+    $options = [['limit' => 4]];
+    $trades = $tradecoll->find([], $options);
+    echo json_encode($trades);
+    exit;
 }
 
 ?>
-
-
 
 <?php include 'header.php'; ?>
 <div id="main">

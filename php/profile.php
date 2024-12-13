@@ -6,8 +6,7 @@
             <div id="stats"></div>
             <br></br>
 
-            <button id="new_trade" onclick="location.href='new_trade.html'">Start a new trade</button>
-            <button id="p_active_trades" onclick="">Username's active trades</button>
+            <button id="new_trade" onclick="location.href='trade_offers.php'">View your trade offers</button>
             <h2 id="t_name">Terrarium name</h2>
 
             <div id="terrarium">

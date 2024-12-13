@@ -30,6 +30,7 @@
                 'biome' => $biome,
                 'inventory' => [],
                 'terrarium' => [],
+                'terr_name' => 'My Terrarium',
                 'trades' => [],
                 'friendlist' => []
             ]);

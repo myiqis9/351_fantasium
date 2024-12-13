@@ -167,7 +167,7 @@ h2 {
   overflow: hidden;
 }
 
-#terra_name_input {
+#terra_name {
   width: 40%;
   height: 50px;
   text-align: center;
@@ -182,7 +182,11 @@ h2 {
   cursor: pointer;
 }
 
-#terra_name_input:hover {
+#saveBtn {
+  margin : 10px;
+}
+
+#terra_name:hover {
   background-color: #30542F;
   color:#729C5D;
 }

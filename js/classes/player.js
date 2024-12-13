@@ -4,6 +4,7 @@ class Player {
         this.biome = json.biome;
         this.terrarium = json.terrarium;
         this.inventory = json.inventory;
+        this.terr_name = json.terr_name;
         this.trades = json.trades;
         this.friendlist = json.friendlist;
     }

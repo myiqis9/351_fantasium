@@ -26,8 +26,8 @@
             Last gained material : X
             <br></br>
             <div id="exploration"></div>
-            <p>^ This is still a WIP</p>
-            <button id="get_item" onclick="explore()">Forage for items</button>
+            <!-- <p>^ This is still a WIP</p>
+            <button id="get_item" onclick="explore()">Forage for items</button> -->
         </div>
     <script src="../js/exploration.js"> </script>
     <script src="../js/script.js"> </script>

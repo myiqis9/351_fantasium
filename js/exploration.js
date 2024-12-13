@@ -14,36 +14,37 @@ function loaded() {
   load = true;
 }
 
-//randomizer
-function getRarity() {
-  var r = Math.floor(Math.random() * 100);
-  console.log(r);
-  //if (r < 7) return 'urare';
-  if (r < 21) return 'srare';
-  if (r < 42) return 'rare';
-  return 'common';
-}
+//old button stuff
+// //randomizer
+// function getRarity() {
+//   var r = Math.floor(Math.random() * 100);
+//   console.log(r);
+//   //if (r < 7) return 'urare';
+//   if (r < 21) return 'srare';
+//   if (r < 42) return 'rare';
+//   return 'common';
+// }
 
-function explore() {
-  let biomeItems = [];
-  let count = 0;
+// function explore() {
+//   let biomeItems = [];
+//   let count = 0;
 
-  jsonItems.forEach(i => {
-    if (i.biome == player.biome) biomeItems.push(i);
-  });
+//   jsonItems.forEach(i => {
+//     if (i.biome == player.biome) biomeItems.push(i);
+//   });
 
-  for (let i = 0; count < 3; i++) {
-    let r = getRarity();
-    let n = Math.floor(Math.random() * biomeItems.length);
-    if (biomeItems[n].rarity == r) {
-      console.log(`adding ${biomeItems[n].name} to inventory`)
-      player.addToInventory(biomeItems[n].id, 1);
-      count++;
-    }
-  }
-  console.log(player.inventory);
-  updatePlayerInventory();
-}
+//   for (let i = 0; count < 3; i++) {
+//     let r = getRarity();
+//     let n = Math.floor(Math.random() * biomeItems.length);
+//     if (biomeItems[n].rarity == r) {
+//       console.log(`adding ${biomeItems[n].name} to inventory`)
+//       player.addToInventory(biomeItems[n].id, 1);
+//       count++;
+//     }
+//   }
+//   console.log(player.inventory);
+//   updatePlayerInventory();
+// }
 
 function updatePlayerInventory() {
   let data = new FormData();
@@ -148,6 +149,7 @@ function keyPressed() {
 
   //tiles change color when character passes over them
   let currentTileIndex = charY * cols + charX;
+  collectItems(tileColors[currentTileIndex]);
   tileColors[currentTileIndex] = color(253, 255, 228);
 }
 
@@ -156,4 +158,31 @@ function shuffleArray(array) {
     let j = floor(random(i + 1));
     [array[i], array[j]] = [array[j], array[i]];
   }
+}
+
+//color of tile determines rarity of items gathered
+function collectItems(tileColor) {
+  let rarity;
+
+  //checking the color of the tile then linking it to item rarity
+  if (tileColor.levels[0] === 114 && tileColor.levels[1] === 154 && tileColor.levels[2] === 93) {
+    rarity = "common"; //green
+  } else if (tileColor.levels[0] === 156 && tileColor.levels[1] === 195 && tileColor.levels[2] === 203) {
+    rarity = "rare"; //blue
+  } else if (tileColor.levels[0] === 251 && tileColor.levels[1] === 187 && tileColor.levels[2] === 201) {
+    rarity = "srare"; //pink
+  } else {
+    //white tiles (already collected ones) aren't associated to a rarity
+    return;
+  }
+
+  //choosing two random items of the same rarity
+  let biomeItems = jsonItems.filter(i => i.biome === player.biome && i.rarity === rarity);
+  for (let i = 0; i < 2 && biomeItems.length > 0; i++) {
+    let randomItem = random(biomeItems);
+    player.addToInventory(randomItem.id, 1);
+    console.log(`Added ${randomItem.name} (${randomItem.rarity}) to inventory.`);
+  }
+
+  updatePlayerInventory();
 }

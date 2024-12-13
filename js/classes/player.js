@@ -7,6 +7,17 @@ class Player {
         this.terr_name = json.terr_name;
         this.trades = json.trades;
         this.friendlist = json.friendlist;
+        this.movesLeft = localStorage.getItem('movesLeft') ? parseInt(localStorage.getItem('movesLeft')) : 5;
+    }
+
+    checkMovePermission() {
+        if (this.movesLeft > 0) {
+            this.movesLeft--;
+            localStorage.setItem('movesLeft', this.movesLeft); //save updated moves to localStorage
+            return true; //still have moves left, can move
+        } else {
+            return false; //used up all moves, can't move
+        }
     }
 
     //takes item and amount parameters

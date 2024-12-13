@@ -121,11 +121,14 @@ function draw() {
     fill(60, 90, 52);
     ellipse(charX * tileSize + tileSize / 2, charY * tileSize + tileSize / 2, tileSize * 0.6);
     pop();
+
+    player.checkMovePermission()
   }
 }
 
 function keyPressed() {
   //moving the character w/ arrow keys as long as they haven't used all their daily moves
+  player.checkMovePermission()
   if (moveCount < maxMoves) {
     //tracking the last tile they were on
     let previousX = charX;
